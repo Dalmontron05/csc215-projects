@@ -10,14 +10,20 @@ using namespace std;
 // Runtime function
 int main()
 {
-    String name - "Daljeet";
-    int age = 18;
-    char inition = "S";
-    double gpa = 3.5; 
+    string firstName, lastName;
+    int age;
 
-    cout << "My name is: " << name << endl;
-    cout << "And my initial is " << initial << endl;
-    cout << " and I am " << age << " years old!" << endl;
-    cout << " and my GPA is " << gpa << endl;
+
+    cout << "Please enter your first name: " << endl;
+    cin >> firstName;
+
+    cout << "Please enter your last name: " << endl;
+    cin >> lastName;
+
+    cout << "How old are you?: " << endl;
+    cin >> age
+    
+
+    cout << "Your name is: " << firstName << " and your last name is " << lastName << " and you are " << age << " years old.";
 }
 
