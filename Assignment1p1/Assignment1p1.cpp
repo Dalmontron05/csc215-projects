@@ -1,15 +1,23 @@
 /*
     Daljeet Singh
-    05/15/2024
+    05/20/2024
 */
 
+// Imports
 #include <iostream>
-//using std::cout;
-//using std::endl;
 using namespace std;
+
+// Runtime function
 int main()
 {
-    cout << "Game Over!" << endl;
-    return 0;
+    String name - "Daljeet";
+    int age = 18;
+    char inition = "S";
+    double gpa = 3.5; 
+
+    cout << "My name is: " << name << endl;
+    cout << "And my initial is " << initial << endl;
+    cout << " and I am " << age << " years old!" << endl;
+    cout << " and my GPA is " << gpa << endl;
 }
 
