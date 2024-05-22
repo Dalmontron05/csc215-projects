@@ -1,29 +1,23 @@
-// Assignment2p1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Assignment 2.1: JUMANJI: Welcome to the Jungle with I/O kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+
+
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    string pokemonName;
-    char pokemonGender;
-    int pokemonLevel;
-    double pokemonExpToNextLevel;
+	int age;
+	cout << "Can I get in the bar?" << endl;
+	cin >> age;
 
-
-    cout << "Enter your pokemon name:" << endl;
-    cin >> pokemonName;
-
-    cout << "Are they male or female? (enter gender initial)" << endl;
-    cin >> pokemonGender;
-
-    cout << "What level are they?";
-    cin >> pokemonLevel;
-
-    cout << "What's their exp to the next level?";
-    cin >> pokemonExpToNextLevel;
-
-    cout << "Your pokemon's name is " + pokemonName << " and they have a gender initial of " << pokemonGender << " and they are level " << pokemonLevel << "With " << pokemonExpToNextLevel << "more exp left to go";
+	if (age >= 21)
+	{
+		cout << "Yeah sure";
+	}
+	else
+	{
+		cout << "Nah get tf outa here";
+	}
 }
 
