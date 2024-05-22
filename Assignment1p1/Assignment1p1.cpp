@@ -7,6 +7,7 @@
 #include <iostream>
 using namespace std;
 
+
 // Runtime function
 int main()
 {
@@ -21,7 +22,7 @@ int main()
     cin >> lastName;
 
     cout << "How old are you?: " << endl;
-    cin >> age
+    cin >> age;
     
 
     cout << "Your name is: " << firstName << " and your last name is " << lastName << " and you are " << age << " years old.";
