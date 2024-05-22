@@ -1,4 +1,4 @@
-// Assignment 2.1: JUMANJI: Welcome to the Jungle with I/O kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+ //Assignment 2.1: JUMANJI: Welcome to the Jungle with I/O kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
 
 
@@ -7,17 +7,21 @@ using namespace std;
 
 int main()
 {
-	int age;
-	cout << "Can I get in the bar?" << endl;
-	cin >> age;
+	int time;
+	cout << "Time?" << endl;
+	cin >> time;
 
-	if (age >= 21)
+	if (time < 10)
 	{
-		cout << "Yeah sure";
+		cout << "Good moring.";
+	}
+	else if (time < 20)
+	{
+		cout << "Good day.";
 	}
 	else
 	{
-		cout << "Nah get tf outa here";
+		cout << "Good evening.";
 	}
 }
 
