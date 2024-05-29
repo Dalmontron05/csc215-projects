@@ -55,7 +55,7 @@ void question1()
     string s, c, p;
 
     // Question 1
-    cout << "What does the acrynom SCP stand for (no caps)?\n\n";
+    cout << "What does the acronym SCP stand for (no caps)?\n\n";
 
     cout << "The S stands for: ";
     cin >> s;
@@ -82,13 +82,14 @@ void question1()
 
 void question2()
 {
-    bool answer2 = true;
+    char answer;
 
     // Question 2 https://scp-wiki.wikidot.com/object-classes
     cout << "\n\n\nTRUE OR FALSE? The 'Safe' object class means the SCP in question does not pose a threat\n";
-    cin >> answer2;
+    cout << "Enter 't' for true or 'f' for false: ";
+    cin >> answer;
 
-    if (answer2 == false)
+    if (answer == 'f')
     {
         cout << "\nCorrect.";
         correctAnswers++;
@@ -104,7 +105,7 @@ void question2()
 
 void question3()
 {
-    char answer3;
+    char answer;
 
     // Question 3
     cout << "\n\n\nWhich of the following object class designations best describes an SCP that is used to contain another SCP? Enter the corresponding letter.\n\n";
@@ -114,16 +115,16 @@ void question3()
     cout << "D) Ticonderoga\n";
 
     cin.ignore();  // Clear the newline left in the buffer from the previous input
-    cin >> answer3; // This should now properly capture the input
+    cin >> answer;
 
-    if (answer3 == 'a')
+    if (answer == 'A' || answer == 'a')
     {
-        cout << "Correct.";
+        cout << "\nCorrect.";
         correctAnswers++;
     }
     else
     {
-        cout << "Incorrect. The correct answer was Thaumiel.";
+        cout << "\nIncorrect. The correct answer was Thaumiel.";
     }
     testResults();
 }
