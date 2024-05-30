@@ -58,12 +58,15 @@ void question1()
     cout << "What does the acronym SCP stand for (no caps)?\n\n";
 
     cout << "The S stands for: ";
+    cin.ignore();
     cin >> s;
 
     cout << "The C stands for: ";
+    cin.ignore();
     cin >> c;
 
     cout << "The P stands for: ";
+    cin.ignore();
     cin >> p;
 
     if (s == "secure" && c == "contain" && p == "protect")
@@ -87,6 +90,7 @@ void question2()
     // Question 2 https://scp-wiki.wikidot.com/object-classes
     cout << "\n\n\nTRUE OR FALSE? The 'Safe' object class means the SCP in question does not pose a threat\n";
     cout << "Enter 't' for true or 'f' for false: ";
+    cin.ignore();
     cin >> answer;
 
     if (answer == 'f')
@@ -114,7 +118,7 @@ void question3()
     cout << "C) Archon\n";
     cout << "D) Ticonderoga\n";
 
-    cin.ignore();  // Clear the newline left in the buffer from the previous input
+    cin.ignore();
     cin >> answer;
 
     if (answer == 'A' || answer == 'a')
