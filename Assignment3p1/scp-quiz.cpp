@@ -7,7 +7,7 @@
 
 //TODO: assignment 3.1 reqs
 //TODO: tell user how many questions they got right in test results
-//TODO: automatically fail the test once they can no longer pass
+//TODO: automatically fail the test once they can no longer pass (maybe have functions return something?)
 
 
 
@@ -18,10 +18,11 @@ using namespace std;
 
 // Global Variables
 int correctAnswers = 0;
+bool willRetakeTest = false;
 
 
 // Function Declarations
-void question1(); void question2(); void question3(); void testResults();
+void question1(); void question2(); void question3(); void testResultsAndRetry();
 
 
 int main()
@@ -77,19 +78,26 @@ int main()
     char agreement;
     cin >> agreement;
 
-    if (agreement == 'y')
+    do
     {
-        cout << "Then let's begin.\n\n\n";
-        question1();
-    }
-    else if (agreement == 'n')
-    {
-        cout << "We're sorry to hear that. Remain where you are, we've sent security to properly escort you out.";
-    }
-    else
-    {
-        cout << "Invalid Input";
-    }
+        if (agreement == 'y')
+        {
+            cout << "Then let's begin.\n\n\n";
+            question1();
+            question2();
+            question3();
+            testResultsAndRetry();
+            
+        }
+        else if (agreement == 'n')
+        {
+         cout << "We're sorry to hear that. Remain where you are, we've sent security to properly escort you out.";
+        }
+        else
+        {
+            cout << "Invalid Input";
+        }
+    } while ( willRetakeTest == true );
 }
 
 
@@ -122,7 +130,7 @@ void question1()
         cout << "\nIncorrect. SCP stands for Secure, Contain, and Protect";
     }
 
-    question2();
+    // question2();
 }
 
 
@@ -146,7 +154,7 @@ void question2()
         cout << "\nIncorrect. The 'Safe' SCP object class designation only means that the SCP is relatively easy to contain. It has nothing to do with how much of a threat the SCP poses";
     }
 
-    question3();
+    // question3();
 }
 
 
@@ -174,19 +182,34 @@ void question3()
     {
         cout << "\nIncorrect. The correct answer was Thaumiel.";
     }
-    testResults();
 }
 
 
-void testResults()
+void testResultsAndRetry()
 {
+    char tempRetry;
+    // Results
     if (correctAnswers >= 2)
     {
         cout << "\n\n\nCongratulations! You successfully passed the test. Please wait for your interviewer to return to the room to finalize the process.";
+        willRetakeTest = false;
     }
     else
     {
-        cout << "\n\n\nYou have not passed the test. Remain where you are, we've sent security to properly escort you out.";
+        cout << "\n\n\nYou have not passed the test. Would you like to try again? (y/n";
+        cin.ignore();
+        cin >> tempRetry;
+
+
+        // Retry
+        if (tempRetry == 'y')
+        {
+            willRetakeTest = true;
+        }
+        else
+        {
+            willRetakeTest = false;
+        }
     }
 }
 
