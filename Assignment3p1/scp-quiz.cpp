@@ -5,6 +5,11 @@
 // For this assignment, the user will roleplay as a job interviewee for the fictional SCP Foundation. Answer enough questions right, and you're hired.
 
 
+//TODO: assignment 3.1 reqs
+//TODO: tell user how many questions they got right in test results
+//TODO: automatically fail the test once they can no longer pass
+
+
 
 // Imports
 #include <iostream>
@@ -44,8 +49,8 @@ int main()
     cout << "-------#+-----.+###-------------#####+.------------###-------##-------" << endl;
     cout << "-------#-------###---------------####-------------.+###.------#-------" << endl;
     cout << "------+#------+###----------------#+----------------###-------#+------" << endl;
-    cout << "------#+------+###----------------------------------###+------#+------" << endl;
-    cout << "------#+------+###----------------------------------###+------#+------" << endl;
+    cout << "------#+------+###----------------------------------###+------#+------            WELCOME POTENTIAL FUTURE" << endl;
+    cout << "------#+------+###----------------------------------###+------#+------         SCP FONDATION FACUALTY MEMBER" << endl;
     cout << "------#-.-----+###------------++#+--#+++------------###--------#------" << endl;
     cout << "-----#+--------###-.-----+#######----#######------.+###--------##-----" << endl;
     cout << "---##---------.+###------#######-.----#######------###-----------##---" << endl;
@@ -62,9 +67,8 @@ int main()
     cout << "-------------------------####+---.------+####+------------------------" << endl;
     cout << "--------------------------------+####+--------------------------------" << endl;
     cout << "----------------------------------------------------------------------" << endl;
-    cout << "----------------------------------------------------------------------" << endl;
-    cout << "WELCOME POTENTIAL FUTURE SCP FOUNDATION FACUALTY MEMBER.\n\n";
-    
+    cout << "----------------------------------------------------------------------" << endl << endl; 
+
     cout << "This next step in the hiring process is a test to see how much you know about us and what we do. If you haven't already, please review our mission statement: https://scp-wiki.wikidot.com/about-the-scp-foundation\n\n";
     cout << "This test will be 3 questions. You must get at least 2 correct to pass. If you do pass, you're hired (this is our last step in the hiring process). If you don't, you will be administered class B anesthetics and returned home.\n\n";
 
