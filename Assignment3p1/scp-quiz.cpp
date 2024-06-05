@@ -22,14 +22,44 @@ bool willRetakeTest = false;
 
 
 // Function Declarations
-void question1(); void question2(); void question3(); void testResultsAndRetry();
+void introduction(); void question1(); void question2(); void question3(); void testResultsAndRetry();
 
 
 int main()
 {
-    bool isHired = false;
+    introduction();
+
+    // Agreement to terms and conditions
+    cout << "Do you agree to these terms? (y/n)\n";
+    char agreement;
+    cin >> agreement;
+
+    do
+    {
+        // main 'quiz taking state' of the loop lives here
+        if (agreement == 'y')
+        {
+            cout << "Then let's begin.\n\n\n";
+            question1();
+            question2();
+            question3();
+            testResultsAndRetry();
+            
+        }
+        else if (agreement == 'n')
+        {
+         cout << "We're sorry to hear that. Remain where you are, we've sent security to properly escort you out.";
+        }
+        else
+        {
+            cout << "Invalid Input";
+        }
+    } while ( willRetakeTest == true );
+}
 
 
+void introduction()
+{
     // Introduction
     cout << "----------------------------------------------------------------------" << endl;
     cout << "----------------------------------------------------------------------" << endl;
@@ -72,32 +102,6 @@ int main()
 
     cout << "This next step in the hiring process is a test to see how much you know about us and what we do. If you haven't already, please review our mission statement: https://scp-wiki.wikidot.com/about-the-scp-foundation\n\n";
     cout << "This test will be 3 questions. You must get at least 2 correct to pass. If you do pass, you're hired (this is our last step in the hiring process). If you don't, you will be administered class B anesthetics and returned home.\n\n";
-
-    // Agreement to terms and conditions
-    cout << "Do you agree to these terms? (y/n)\n";
-    char agreement;
-    cin >> agreement;
-
-    do
-    {
-        if (agreement == 'y')
-        {
-            cout << "Then let's begin.\n\n\n";
-            question1();
-            question2();
-            question3();
-            testResultsAndRetry();
-            
-        }
-        else if (agreement == 'n')
-        {
-         cout << "We're sorry to hear that. Remain where you are, we've sent security to properly escort you out.";
-        }
-        else
-        {
-            cout << "Invalid Input";
-        }
-    } while ( willRetakeTest == true );
 }
 
 
