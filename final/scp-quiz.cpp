@@ -23,7 +23,7 @@ string firstName, lastName;
 
 
 // Function Declarations
-void introduction(); void question1(); void question2(); void question3(); void testResultsAndRetry();
+void introduction(); void question1(); void question2(); void question3(); void question4(); void testResultsAndRetry();
 
 
 int main()
