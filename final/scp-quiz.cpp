@@ -1,13 +1,12 @@
-/*
-    Daljeet Singh
-    Assignment 3.1: Loops
-*/
-// For this assignment, the user will roleplay as a job interviewee for the fictional SCP Foundation. Answer enough questions right, and you're hired.
+// Main C++ file
 
-
-//TODO: assignment 3.1 reqs
-//TODO: tell user how many questions they got right in test results
+//! first cin character just straight up is ignored
+//TODO: tell user how many questions they got right and left in test results and constantly on their screen while test taking (you can do this by making a function that checks how many question are correct so far)
 //TODO: automatically fail the test once they can no longer pass (maybe have functions return something?)
+//TODO: add achievments (like the "tell me i'm not the most valuable member of this team" thing from that one scp movie)
+//TODO: make terminal colored
+//TODO: make introduction not have to be repeated after failing the quiz
+//TODO: make one of the questions with an askii image art
 
 
 
@@ -17,8 +16,10 @@ using namespace std;
 
 
 // Global Variables
-int correctAnswers = 0;
+int achievements, totalAchievments = 1;
+int correctAnswers = 0, totalQuestions = 4;
 bool willRetakeTest = false;
+string firstName, lastName;
 
 
 // Function Declarations
@@ -27,32 +28,28 @@ void introduction(); void question1(); void question2(); void question3(); void 
 
 int main()
 {
-    introduction();
+    cout << "Hello! This project is a fictional job interview process for the fictional SCP organization. \nIf you're already aware of what it is, you'll be able to express your SCP trivia knowledge. If not, you'll find out everything you need to know about them in the wiki: https://scp-wiki.wikidot.com/about-the-scp-foundation" << endl;
 
-    // Agreement to terms and conditions
-    cout << "Do you agree to these terms? (y/n)\n";
+    cout << "Are you ready? (y/n)\n";
     char agreement;
+    cin.ignore();
     cin >> agreement;
-
     do
     {
         // main 'quiz taking state' of the loop lives here
         if (agreement == 'y')
         {
             cout << "Then let's begin.\n\n\n";
+            introduction();
             question1();
             question2();
             question3();
+            question4();
             testResultsAndRetry();
-            
-        }
-        else if (agreement == 'n')
-        {
-         cout << "We're sorry to hear that. Remain where you are, we've sent security to properly escort you out.";
         }
         else
         {
-            cout << "Invalid Input";
+         cout << "Exiting...";
         }
     } while ( willRetakeTest == true );
 }
@@ -60,7 +57,6 @@ int main()
 
 void introduction()
 {
-    // Introduction
     cout << "----------------------------------------------------------------------" << endl;
     cout << "----------------------------------------------------------------------" << endl;
     cout << "-------------------------+##################--------------------------" << endl;
@@ -80,8 +76,8 @@ void introduction()
     cout << "-------#+-----.+###-------------#####+.------------###-------##-------" << endl;
     cout << "-------#-------###---------------####-------------.+###.------#-------" << endl;
     cout << "------+#------+###----------------#+----------------###-------#+------" << endl;
-    cout << "------#+------+###----------------------------------###+------#+------            WELCOME POTENTIAL FUTURE" << endl;
-    cout << "------#+------+###----------------------------------###+------#+------         SCP FONDATION FACUALTY MEMBER" << endl;
+    cout << "------#+------+###----------------------------------###+------#+------            Secure, Contain," << endl;
+    cout << "------#+------+###----------------------------------###+------#+------                Protect" << endl;
     cout << "------#-.-----+###------------++#+--#+++------------###--------#------" << endl;
     cout << "-----#+--------###-.-----+#######----#######------.+###--------##-----" << endl;
     cout << "---##---------.+###------#######-.----#######------###-----------##---" << endl;
@@ -100,8 +96,22 @@ void introduction()
     cout << "----------------------------------------------------------------------" << endl;
     cout << "----------------------------------------------------------------------" << endl << endl; 
 
-    cout << "This next step in the hiring process is a test to see how much you know about us and what we do. If you haven't already, please review our mission statement: https://scp-wiki.wikidot.com/about-the-scp-foundation\n\n";
-    cout << "This test will be 3 questions. You must get at least 2 correct to pass. If you do pass, you're hired (this is our last step in the hiring process). If you don't, you will be administered class B anesthetics and returned home.\n\n";
+
+    // Asks for name
+    cout << "Enter your name\n";
+    cout << "First Name: ";
+    cin.ignore();
+    cin >> firstName;
+
+    cout << "Last Name: ";
+    cin.ignore();
+    cin >> lastName;
+
+
+    cout << "\nHello " << firstName << ", Welcome to the SCP Foundation's hiring process.\n";
+
+
+    cout << "Do to the secrecy of this organization, we will access how prepared you came to this interview with some trivia about us.\n\n";
 }
 
 
@@ -109,7 +119,6 @@ void question1()
 {
     string s, c, p;
 
-    // Question 1
     cout << "What does the acronym SCP stand for?\n\n";
 
     cout << "The S stands for: ";
@@ -133,8 +142,6 @@ void question1()
     {
         cout << "\nIncorrect. SCP stands for Secure, Contain, and Protect";
     }
-
-    // question2();
 }
 
 
@@ -142,7 +149,6 @@ void question2()
 {
     char answer;
 
-    // Question 2 https://scp-wiki.wikidot.com/object-classes
     cout << "\n\n\nThe 'Safe' object class means the SCP in question does not pose a threat\n";
     cout << "True or False? (enter 't' for true or 'f' for false): ";
     cin.ignore();
@@ -157,8 +163,6 @@ void question2()
     {
         cout << "\nIncorrect. The 'Safe' SCP object class designation only means that the SCP is relatively easy to contain. It has nothing to do with how much of a threat the SCP poses";
     }
-
-    // question3();
 }
 
 
@@ -168,6 +172,7 @@ void question3()
 
     // Question 3
     cout << "\n\n\nWhich of the following object class designations best describes an SCP that is used to contain another SCP?\n\n";
+
     cout << "A) Thaumiel\n";
     cout << "B) Apollyon\n";
     cout << "C) Archon\n";
@@ -189,13 +194,33 @@ void question3()
 }
 
 
+void question4()
+{
+    int answer;
+
+    cout << "What's the secret password?";
+    cin.ignore();
+    cin >> answer;
+
+    if (answer == 1234)
+    {
+        cout << "\nCorrect. Achievement unlocked! 'Tell me I'm not the most valuable member of this team.'";
+        correctAnswers++;
+    }
+    else
+    {
+        cout << "\nIncorrect. Don't worry, that question was extra credit. I won't count it against you";
+    }
+}
+
+
 void testResultsAndRetry()
 {
     char tempRetry;
     // Results
     if (correctAnswers >= 2)
     {
-        cout << "\n\n\nCongratulations! You successfully passed the test. Please wait for your interviewer to return to the room to finalize the process.";
+        cout << "\n\n\nCongratulations! You successfully passed the test.";
         willRetakeTest = false;
     }
     else
