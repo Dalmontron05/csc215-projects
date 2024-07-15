@@ -1,15 +1,17 @@
 // Main C++ file
+//TODO: After the professor visits, make a bell sound ring signaling the end of the classroom portion of the tour.
+//TODO: Then allow the user to end the simulation or to run it again using a loop. 
 //TODO: potentially for loop if statements might miss outputing anything if user inputs something that's not a professor's name. consider making the "else" statement in the for loop a function. Call that function in the else, and prevent the future loop from running if it does (maybe with a boolean).
 
 
 
 // Imports
+#include <windows.h>
+#include <mmsystem.h>
 #include <iostream>
-// #include <cstdlib>
-// #include <ctime> 
-// #include <string.h>
-// #include <algorithm>
+#include <string>
 
+#pragma comment(lib, "winmm.lib")
 using namespace std;
 
 
@@ -71,5 +73,9 @@ int main()
             }
         }
     }
+    string bellSoundEffect = "bell-sound-effect.wav";
+
+    // PlaySound(TEXT("bell-sound-effect.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    cin >> bellSoundEffect; // TESTING so the terminal doesn't close
 }
 
