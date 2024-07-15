@@ -7,6 +7,7 @@
 //TODO: make terminal colored
 //TODO: make introduction not have to be repeated after failing the quiz
 //TODO: make one of the questions with an askii image art
+//TODO: make obnoxious ding and buzzer sound effects depending on what the user answers on a per questio basis
 
 
 
