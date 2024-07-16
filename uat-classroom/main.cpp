@@ -1,5 +1,4 @@
 // Main C++ file
-//TODO: After the professor visits, make a bell sound ring signaling the end of the classroom portion of the tour.
 //TODO: potentially for loop if statements might miss outputing anything if user inputs something that's not a professor's name. consider making the "else" statement in the for loop a function. Call that function in the else, and prevent the future loop from running if it does (maybe with a boolean).
 
 
@@ -50,8 +49,7 @@ int main()
         }
 
         // asks user to guess a professor
-        cout << "Suprise! Today you're going to meet one of these professors. Who do you think it will be?\n";
-        cout << "Your answer: ";
+        cout << "Suprise! Today you're going to meet one of these professors. Who do you think it'll be?: ";
         getline(cin, guessedProfessor);
 
         // generates a random number between 0 and 9. this interger will represent the random professor
@@ -70,22 +68,22 @@ int main()
                 // checks if that name is the chosenProfessor
                 if (guessedProfessor == chosenProfessor)
                 {
-                    cout << "Congratulations! You've guessed right!.\n";
+                    cout << "That's right!.\n";
                 }
                 // if not, tells user who the correct professor was
                 else
                 {
-                    cout << "Sorry, but that wasn't the professor you were thinking of. The correct professor was: " << chosenProfessor << endl;
+                    cout << "Nope! Today you'll be seeing-"<< endl;
                 }
             }
         }
-
-        // string bellSoundEffect = "bell-sound-effect.wav";
-
-        // PlaySound(TEXT("bell-sound-effect.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+        
+        // plays a bell sound when the chosen professor is here.
+        Beep(750, 100);
+        cout << "Oh! They're here! That signifies this part of the tour. Enjoy your time with " << chosenProfessor << "!\n";
 
         // asks user if they want to try again
-        cout << "Do you want to play again? (y/n): ";
+        cout << "Do you want to run the simulation again? (y/n): ";
         cin >> askToRetake;
         cin.ignore(1, '\n'); // why on gods green earth is this cin and getline bullshit so sensitive
 
