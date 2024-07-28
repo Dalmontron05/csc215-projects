@@ -14,6 +14,12 @@ bool retry = false;
 
 
 // Functions
+void ending()
+{
+    cout << "You see something glimmer at the corridor end. You enroach a golden chest. Despite the dust it's collected, it's shine pierces through the darkness. You open it up to find sizable amounts of gold. You scramble to pick it up and hurry back home.\n\nCongratulations! You've reached the end";
+}
+
+
 bool senario2(char x)
 {
     switch (x)
@@ -105,5 +111,7 @@ int main()
 
     cout << "You look around the room and start to see why no-one else has came back. Everything your light touches reveals a gnarly looking trap, or remnants of a victim to said traps. You see a corridor directly ahead on the far side of the room";
     choice2();
+
+    ending();
 }
 
