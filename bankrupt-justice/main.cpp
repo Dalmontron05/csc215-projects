@@ -13,14 +13,22 @@ int joeAccount = 450;
 
 
 // Function Declarations
-void checkAccounts(); void swap();
+void checkAccounts();
+
+// swaps the values of two variables
+void swap(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 
 int main()
 {
     checkAccounts();
     cout << "\nWe will now swap the values of the terrorist organizations bank account with Joe's Coffee Shop bank account.\n" << endl;
-    swap();
+    swap(&terroristAccount, &joeAccount);
     checkAccounts();
 }
 
@@ -31,12 +39,4 @@ void checkAccounts()
     cout << "Joe's Account: $" << joeAccount << endl;
 }
 
-
-// swaps the values of two variables
-void swap()
-{
-    int temp = terroristAccount;
-    terroristAccount = joeAccount;
-    joeAccount = temp;
-}
 
