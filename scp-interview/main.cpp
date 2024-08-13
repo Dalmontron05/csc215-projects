@@ -1,6 +1,7 @@
 // Main C++ file
 
 //! first cin character just straight up is ignored
+//TODO: "status bar" at the top of the terminal that shows how many questions you've answered, how many you've gotten right, and how many achievments you have.
 //TODO: tell user how many questions they got right and left in test results and constantly on their screen while test taking (you can do this by making a function that checks how many question are correct so far)
 //TODO: automatically fail the test once they can no longer pass (maybe have functions return something?)
 //TODO: add achievments (like the "tell me i'm not the most valuable member of this team" thing from that one scp movie)
