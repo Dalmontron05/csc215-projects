@@ -1,6 +1,6 @@
 // Main C++ file
 
-//! first cin character just straight up is ignored
+//! do loop broke
 //TODO: "status bar" at the top of the terminal that shows how many questions you've answered, how many you've gotten right, and how many achievments you have.
 //TODO: tell user how many questions they got right and left in test results and constantly on their screen while test taking (you can do this by making a function that checks how many question are correct so far)
 //TODO: automatically fail the test once they can no longer pass (maybe have functions return something?)
@@ -34,8 +34,8 @@ int main()
 
     cout << "Are you ready? (y/n)\n";
     char agreement;
-    cin.ignore();
     cin >> agreement;
+    cin.ignore(1000, '\n');
     do
     {
         // main 'quiz taking state' of the loop lives here
@@ -102,12 +102,12 @@ void introduction()
     // Asks for name
     cout << "Enter your name\n";
     cout << "First Name: ";
-    cin.ignore();
     cin >> firstName;
+    cin.ignore(1000, '\n');
 
     cout << "Last Name: ";
-    cin.ignore();
     cin >> lastName;
+    cin.ignore(1000, '\n');
 
 
     cout << "\nHello " << firstName << ", Welcome to the SCP Foundation's hiring process.\n";
@@ -124,16 +124,16 @@ void question1()
     cout << "What does the acronym SCP stand for?\n\n";
 
     cout << "The S stands for: ";
-    cin.ignore();
     cin >> s;
+    cin.ignore(1000, '\n');
 
     cout << "The C stands for: ";
-    cin.ignore();
     cin >> c;
+    cin.ignore(1000, '\n');
 
     cout << "The P stands for: ";
-    cin.ignore();
     cin >> p;
+    cin.ignore(1000, '\n');
 
     if ((s == "secure" ||  s == "Secure") && (c == "contain" || c == "Contain") && (p == "protect" || p == "Protect"))
     {
@@ -153,8 +153,8 @@ void question2()
 
     cout << "\n\n\nThe 'Safe' object class means the SCP in question does not pose a threat\n";
     cout << "True or False? (enter 't' for true or 'f' for false): ";
-    cin.ignore();
     cin >> answer;
+    cin.ignore(1000, '\n');
 
     if (answer == 'f' || answer == 'F')
     {
@@ -181,8 +181,8 @@ void question3()
     cout << "D) Ticonderoga\n\n";
 
     cout << "Enter the corresponding multi-choice letter: ";
-    cin.ignore();
     cin >> answer;
+    cin.ignore(1000, '\n');
 
     if (answer == 'A' || answer == 'a')
     {
@@ -201,8 +201,8 @@ void question4()
     int answer;
 
     cout << "What's the secret password?";
-    cin.ignore();
     cin >> answer;
+    cin.ignore(1000, '\n');
 
     if (answer == 1234)
     {
@@ -228,8 +228,8 @@ void testResultsAndRetry()
     else
     {
         cout << "\n\n\nYou have not passed the test. Would you like to try again? (y/n";
-        cin.ignore();
         cin >> tempRetry;
+        cin.ignore(1000, '\n');
 
 
         // Retry
