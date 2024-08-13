@@ -1,6 +1,5 @@
 // Main C++ file
 
-//! do loop broke
 //TODO: "status bar" at the top of the terminal that shows how many questions you've answered, how many you've gotten right, and how many achievments you have.
 //TODO: tell user how many questions they got right and left in test results and constantly on their screen while test taking (you can do this by making a function that checks how many question are correct so far)
 //TODO: automatically fail the test once they can no longer pass (maybe have functions return something?)
@@ -14,6 +13,7 @@
 
 // Imports
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 
@@ -225,9 +225,7 @@ void testResultsAndRetry()
         cout << "\n\n\nCongratulations! You successfully passed the test.";
         willRetakeTest = false;
     }
-    else
-    {
-        cout << "\n\n\nYou have not passed the test. Would you like to try again? (y/n";
+        cout << "\n\n\nWould you like to try again? (y/n)";
         cin >> tempRetry;
         cin.ignore(1000, '\n');
 
@@ -241,6 +239,5 @@ void testResultsAndRetry()
         {
             willRetakeTest = false;
         }
-    }
 }
 
