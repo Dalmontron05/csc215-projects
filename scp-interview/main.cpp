@@ -1,10 +1,12 @@
 // Main C++ file
 
+//TODO: seperate everything out into files and classes
+
 //TODO: "status bar" at the top of the terminal that shows how many questions you've answered, how many you've gotten right, and how many achievments you have.
 //TODO: tell user how many questions they got right and left in test results and constantly on their screen while test taking (you can do this by making a function that checks how many question are correct so far)
 //TODO: automatically fail the test once they can no longer pass (maybe have functions return something?)
 //TODO: add achievments (like the "tell me i'm not the most valuable member of this team" thing from that one scp movie)
-//TODO: make terminal colored
+//TODO: make terminal colored (ANSI escape code)
 //TODO: make introduction not have to be repeated after failing the quiz
 //TODO: make one of the questions with an askii image art
 //TODO: make obnoxious ding and buzzer sound effects depending on what the user answers on a per questio basis
@@ -14,6 +16,10 @@
 // Imports
 #include <iostream>
 #include <stdlib.h>
+
+#include "questions.h"
+#include "questions.cpp"
+
 using namespace std;
 
 
@@ -25,11 +31,18 @@ string firstName, lastName;
 
 
 // Function Declarations
-void introduction(); void question1(); void question2(); void question3(); void question4(); void testResultsAndRetry();
+void introduction(); void testResultsAndRetry();
+
+class Results
+{
+    public:
+        bool q1, q2, q3, q4;// q representions "questions"
+};
 
 
 int main()
 {
+    Results answers;
     cout << "Hello! This project is a fictional job interview process for the fictional SCP organization. \nIf you're already aware of what it is, you'll be able to express your SCP trivia knowledge. If not, you'll find out everything you need to know about them in the wiki: https://scp-wiki.wikidot.com/about-the-scp-foundation" << endl;
 
     cout << "Are you ready? (y/n)\n";
@@ -43,7 +56,7 @@ int main()
         {
             cout << "Then let's begin.\n\n\n";
             introduction();
-            question1();
+            answers.q1 = question1();
             question2();
             question3();
             question4();
@@ -117,103 +130,7 @@ void introduction()
 }
 
 
-void question1()
-{
-    string s, c, p;
 
-    cout << "What does the acronym SCP stand for?\n\n";
-
-    cout << "The S stands for: ";
-    cin >> s;
-    cin.ignore(1000, '\n');
-
-    cout << "The C stands for: ";
-    cin >> c;
-    cin.ignore(1000, '\n');
-
-    cout << "The P stands for: ";
-    cin >> p;
-    cin.ignore(1000, '\n');
-
-    if ((s == "secure" ||  s == "Secure") && (c == "contain" || c == "Contain") && (p == "protect" || p == "Protect"))
-    {
-        cout << "\nCorrect.";
-        correctAnswers++;
-    }
-    else
-    {
-        cout << "\nIncorrect. SCP stands for Secure, Contain, and Protect";
-    }
-}
-
-
-void question2()
-{
-    char answer;
-
-    cout << "\n\n\nThe 'Safe' object class means the SCP in question does not pose a threat\n";
-    cout << "True or False? (enter 't' for true or 'f' for false): ";
-    cin >> answer;
-    cin.ignore(1000, '\n');
-
-    if (answer == 'f' || answer == 'F')
-    {
-        cout << "\nCorrect.";
-        correctAnswers++;
-    }
-    else
-    {
-        cout << "\nIncorrect. The 'Safe' SCP object class designation only means that the SCP is relatively easy to contain. It has nothing to do with how much of a threat the SCP poses";
-    }
-}
-
-
-void question3()
-{
-    char answer;
-
-    // Question 3
-    cout << "\n\n\nWhich of the following object class designations best describes an SCP that is used to contain another SCP?\n\n";
-
-    cout << "A) Thaumiel\n";
-    cout << "B) Apollyon\n";
-    cout << "C) Archon\n";
-    cout << "D) Ticonderoga\n\n";
-
-    cout << "Enter the corresponding multi-choice letter: ";
-    cin >> answer;
-    cin.ignore(1000, '\n');
-
-    if (answer == 'A' || answer == 'a')
-    {
-        cout << "\nCorrect.";
-        correctAnswers++;
-    }
-    else
-    {
-        cout << "\nIncorrect. The correct answer was Thaumiel.";
-    }
-}
-
-
-void question4()
-{
-    int answer;
-
-    cout << "What's the secret password?";
-    cin >> answer;
-    cin.ignore(1000, '\n');
-
-    if (answer == 1234)
-    {
-        cout << "\nCorrect. Achievement unlocked! 'Tell me I'm not the most valuable member of this team.'";
-        correctAnswers++;
-    }
-    else
-    {
-        cout << "\nIncorrect. Don't worry, that question was extra credit. I won't count it against you";
-    }
-}
 
 
 void testResultsAndRetry()
