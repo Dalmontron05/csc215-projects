@@ -1,13 +1,11 @@
 // Main C++ file
 /*
-* write test results to file. make results identifiable to a players name
+*
 
 TODO: "status bar" at the top of the terminal that shows how many questions you've answered, how many you've gotten right, and how many achievments you have.
-TODO: tell user how many questions they got right and left in test results and constantly on their screen while test taking (you can do this by making a function that checks how many question are correct so far)
 TODO: automatically fail the test once they can no longer pass (maybe have functions return something?)
 TODO: add achievments (like the "tell me i'm not the most valuable member of this team" thing from that one scp movie)
 TODO: make terminal colored (ANSI escape code)
-TODO: make introduction not have to be repeated after failing the quiz
 TODO: make one of the questions with an askii image art
 TODO: make obnoxious ding and buzzer sound effects depending on what the user answers on a per question basis
 */

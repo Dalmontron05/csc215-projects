@@ -1,8 +1,8 @@
 #pragma once
 
-bool calculateResults();
-bool question4();
-bool question3();
-bool question2();
-bool question1();
+void calculateResults();
+void question4();
+void question3();
+void question2();
+void question1();
 

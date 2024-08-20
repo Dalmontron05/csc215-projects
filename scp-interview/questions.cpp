@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <fstream>
 
 using namespace std;
 
@@ -11,14 +12,14 @@ using namespace std;
 class Results
 {
     public:
-        bool question1, question2, question3, question4;
+        bool question1 = false, question2 = false, question3 = false, question4 = false;
         int numberCorrect = 0;
 };
 Results answers;
 
 
 // Functions
-bool question1()
+void question1()
 {
     string s, c, p;
 
@@ -42,17 +43,16 @@ bool question1()
     {
         cout << "\nCorrect.";
         answers.numberCorrect++;
-        return true;
+        answers.question1 = true;
     }
     else
     {
         cout << "\nIncorrect. SCP stands for Secure, Contain, and Protect";
     }
-    return false;
 }
 
 
-bool question2()
+void question2()
 {
     char answer;
 
@@ -65,17 +65,16 @@ bool question2()
     {
         cout << "\nCorrect.";
         answers.numberCorrect++;
-        return true;
+        answers.question2 = true;
     }
     else
     {
         cout << "\nIncorrect. The 'Safe' SCP object class designation only means that the SCP is relatively easy to contain. It has nothing to do with how much of a threat the SCP poses";
     }
-    return false;
 }
 
 
-bool question3()
+void question3()
 {
     char answer;
 
@@ -95,17 +94,16 @@ bool question3()
     {
         cout << "\nCorrect.";
         answers.numberCorrect++;
-        return true;
+        answers.question3 = true;
     }
     else
     {
         cout << "\nIncorrect. The correct answer was Thaumiel.";
     }
-    return false;
 }
 
 
-bool question4()
+void question4()
 {
     int answer;
 
@@ -117,27 +115,36 @@ bool question4()
     {
         cout << "\nCorrect. Achievement unlocked! 'Tell me I'm not the most valuable member of this team.'";
         answers.numberCorrect++;
-        return true;
+        answers.question4 = true;
     }
     else
     {
         cout << "\nIncorrect. Don't worry, that question was extra credit. I won't count it against you";
     }
-    return false;
 }
 
-bool calculateResults()
+// calculates and saves results to file
+void calculateResults()
 {
     // Results
     if (answers.numberCorrect >= 2)
     {
         cout << "\n\n\nCongratulations! You successfully passed the test.";
-        return true;
     }
     else
     {
         cout << "\n\n\nSorry, you failed the test. You answered " << answers.numberCorrect << " questions correctly out of 4.";
     }
-    return false;
+
+    // Save results to file
+    ofstream outputFile;
+    outputFile.open("results.txt");
+    outputFile << "Results:\n";
+    outputFile << "Question 1: " << (answers.question1? "Correct" : "Incorrect") << "\n";
+    outputFile << "Question 2: " << (answers.question2? "Correct" : "Incorrect") << "\n";
+    outputFile << "Question 3: " << (answers.question3? "Correct" : "Incorrect") << "\n";
+    outputFile << "Question 4: " << (answers.question4? "Correct" : "Incorrect") << "\n";
+    outputFile << "Number Correct: " << answers.numberCorrect << "/4\n";
+    outputFile.close();
 }
 
