@@ -7,6 +7,16 @@
 using namespace std;
 
 
+// Classes
+class Results
+{
+    public:
+        bool question1, question2, question3, question4;
+        int numberCorrect = 0;
+};
+Results answers;
+
+
 // Functions
 bool question1()
 {
@@ -26,9 +36,12 @@ bool question1()
     cin >> p;
     cin.ignore(1000, '\n');
 
+
+
     if ((s == "secure" ||  s == "Secure") && (c == "contain" || c == "Contain") && (p == "protect" || p == "Protect"))
     {
         cout << "\nCorrect.";
+        answers.numberCorrect++;
         return true;
     }
     else
@@ -39,7 +52,7 @@ bool question1()
 }
 
 
-void question2()
+bool question2()
 {
     char answer;
 
@@ -51,15 +64,18 @@ void question2()
     if (answer == 'f' || answer == 'F')
     {
         cout << "\nCorrect.";
+        answers.numberCorrect++;
+        return true;
     }
     else
     {
         cout << "\nIncorrect. The 'Safe' SCP object class designation only means that the SCP is relatively easy to contain. It has nothing to do with how much of a threat the SCP poses";
     }
+    return false;
 }
 
 
-void question3()
+bool question3()
 {
     char answer;
 
@@ -78,28 +94,50 @@ void question3()
     if (answer == 'A' || answer == 'a')
     {
         cout << "\nCorrect.";
+        answers.numberCorrect++;
+        return true;
     }
     else
     {
         cout << "\nIncorrect. The correct answer was Thaumiel.";
     }
+    return false;
 }
 
 
-void question4()
+bool question4()
 {
     int answer;
 
-    cout << "What's the secret password?";
+    cout << "\n\n\nWhat's the secret password? ";
     cin >> answer;
     cin.ignore(1000, '\n');
 
     if (answer == 1234)
     {
         cout << "\nCorrect. Achievement unlocked! 'Tell me I'm not the most valuable member of this team.'";
+        answers.numberCorrect++;
+        return true;
     }
     else
     {
         cout << "\nIncorrect. Don't worry, that question was extra credit. I won't count it against you";
     }
+    return false;
 }
+
+bool calculateResults()
+{
+    // Results
+    if (answers.numberCorrect >= 2)
+    {
+        cout << "\n\n\nCongratulations! You successfully passed the test.";
+        return true;
+    }
+    else
+    {
+        cout << "\n\n\nSorry, you failed the test. You answered " << answers.numberCorrect << " questions correctly out of 4.";
+    }
+    return false;
+}
+
